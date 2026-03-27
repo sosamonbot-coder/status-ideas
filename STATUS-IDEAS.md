@@ -167,4 +167,46 @@
 
 ---
 
+---
+
+## 📡 Status Media Network (The Real Business)
+
+82. **Nightlife Media Network** — Charge alcohol brands to reach verified, high-intent audiences through Status. Targeting: "people who spend >$200/night on premium spirits" or "birthday celebrators next week in DC." 15-20% of ad spend. Status's identity graph (real ID scans, not cookies) is 10x richer than e-commerce data.
+83. **Sponsored moments** — Brands buy "moments" inside Status: the welcome shot at the door is Casamigos, the receipt says "Powered by Grey Goose," the post-night recap is branded by Uber. $5-15K/month per brand per city.
+84. **Audience lookalike exports** — Venues/brands upload their best customers, Status finds lookalikes across all venues. Charge per match. Like Facebook Lookalike Audiences but for real-world nightlife.
+85. **Attribution-as-a-Service** — Brands running billboard/social/radio ads for nightlife products can measure real-world lift through Status check-in data. "Did people who saw the Hennessy billboard go out more?" Charge $10-50K per attribution study.
+86. **Cross-venue retargeting** — Guest visits Venue A but doesn't come back. Venue A pays Status to push a "Come back, free drink on us" notification. CPM-based pricing, massive conversion because it's tied to real behavior.
+
+## 🏦 Status Finance (Year 2+)
+
+87. **Status Wallet** — Pre-loaded balance for faster checkout. Guests load $200, spend it across any Status venue. Status earns float + reduces Stripe fees (ACH load = 0.8% vs 2.9% card).
+88. **Status Credit** — BNPL for nightlife. "Split this $800 table across 4 payments." Underwrite using Status spending history (better signal than FICO for this demo). Partner with Cross River or build own.
+89. **Payroll for nightlife workers** — Bartenders/bouncers/promoters get paid through Status. Early wage access, tips direct deposit. Interchange on Status debit card. Captive audience already in the system.
+90. **Venue cash advance** — Revenue-based financing using real-time Status transaction data. Venue needs $20K for a renovation? Status advances it, takes 1% of daily sales until repaid. Better underwriting than any bank.
+91. **Group expense splitting** — Venmo for nightlife. Split the night automatically based on what each person ordered. Charge $1 convenience fee or earn on float.
+
+## 🎯 Viral Growth Mechanics
+
+92. **"Who's going?" social proof** — Show real-time attendee count + friends going to each venue. FOMO engine. Free feature that drives massive organic growth.
+93. **Night recap stories** — Auto-generated Instagram/TikTok stories: venues visited, friends tagged, total spent (opt-in). Built-in viral loop — every story is a Status ad.
+94. **Streak rewards** — "You've gone out 4 Saturdays in a row!" Gamify nightlife attendance. Streaks unlock perks (skip line, free drink). Creates habit loops.
+95. **Crew leaderboards** — Friend groups compete on nights out, venues visited, total spend. Monthly prizes. Turns nightlife into a social game.
+96. **Pre-game polls** — "Where should we go tonight?" Vote in-app, winning venue offers the group a deal. Drives coordinated group decisions toward Status venues.
+
+## 🔒 Venue Lock-in (Switching Costs)
+
+97. **Guest CRM** — Every guest who ever walked in, what they ordered, when they came, who they came with. Leave Status = lose your entire customer database. No POS has this.
+98. **Automated marketing** — "Send 20% off to guests who haven't visited in 30 days." Status runs it automatically. Venue just watches revenue go up. Leave Status = lose your marketing engine.
+99. **Staff scheduling AI** — Predict busy nights from Status data, auto-generate optimal staff schedules. Bartender-to-guest ratio optimization. Reduces labor cost 10-15%.
+100. **Comp & waste tracking** — Track every free drink, every void, every over-pour. ML flags anomalies. "Bartender X comps 3x more than average on Tuesday nights." Venues save thousands/month on shrinkage.
+
+## 🌍 Adjacent Verticals
+
+101. **Day clubs / pool parties** — Same tech, different venue type. Vegas day clubs are $100M+ market.
+102. **Music festivals** — NFC wristband + Status = cashless festival payments + post-event marketing. One festival = 50K new users.
+103. **Sports bars** — Game day attribution. "People who watched the Commanders game at Bar X spent 40% more." Sports betting partnership angle.
+104. **Hookah lounges / karaoke bars** — Underserved venue types with loyal repeat customers. Easy adoption, less competition.
+105. **Private members clubs** — Soho House style. Status becomes the membership + billing + CRM platform. Higher ARPU, stickier contracts.
+106. **College Greek life** — Fraternity/sorority party management. Guest lists, capacity tracking, incident reporting. Risk management angle gets buy-in from nationals.
+
 *Next review: Sosa adds 10+ new ideas weekly*
