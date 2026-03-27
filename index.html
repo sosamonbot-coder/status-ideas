@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Status Ideas Engine</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;color:#fff;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',system-ui,sans-serif;padding:16px;padding-bottom:100px}
+h1{font-size:28px;font-weight:700;margin-bottom:4px}
+.subtitle{color:#888;font-size:14px;margin-bottom:24px}
+.category{margin-bottom:32px}
+.cat-header{display:flex;align-items:center;gap:10px;margin-bottom:16px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.cat-icon{font-size:24px}
+.cat-title{font-size:20px;font-weight:600}
+.cat-count{background:#1a1a1a;color:#888;font-size:12px;padding:2px 8px;border-radius:10px}
+.idea{background:#111;border-radius:12px;padding:14px 16px;margin-bottom:8px;transition:all 0.2s}
+.idea:active{background:#1a1a1a;transform:scale(0.98)}
+.idea-num{color:#555;font-size:12px;font-weight:600;margin-bottom:4px}
+.idea-title{font-size:15px;font-weight:600;margin-bottom:4px}
+.idea-desc{color:#999;font-size:13px;line-height:1.4}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:8px;margin-right:6px;margin-top:6px;font-weight:500}
+.tag-immediate{background:#0a2a0a;color:#4ade80}
+.tag-short{background:#1a1a00;color:#facc15}
+.tag-medium{background:#1a0a00;color:#fb923c}
+.tag-long{background:#1a0015;color:#c084fc}
+.tag-partnership{background:#001a1a;color:#22d3ee}
+.tag-growth{background:#0a001a;color:#818cf8}
+.tag-feature{background:#1a0a1a;color:#f472b6}
+.tag-data{background:#0a1a0a;color:#34d399}
+.tag-city{background:#0a0a1a;color:#60a5fa}
+.tag-quick{background:#2a0a0a;color:#f87171}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:24px}
+.stat{background:#111;border-radius:12px;padding:14px;text-align:center}
+.stat-num{font-size:28px;font-weight:700}
+.stat-label{color:#888;font-size:11px;margin-top:2px}
+.filter-bar{display:flex;gap:8px;overflow-x:auto;margin-bottom:20px;padding-bottom:8px;-webkit-overflow-scrolling:touch}
+.filter-bar::-webkit-scrollbar{display:none}
+.filter{background:#1a1a1a;color:#888;border:none;padding:8px 16px;border-radius:20px;font-size:13px;white-space:nowrap;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.filter.active{background:#fff;color:#000;font-weight:600}
+.hidden{display:none}
+.search{width:100%;background:#111;border:none;color:#fff;padding:12px 16px;border-radius:12px;font-size:15px;margin-bottom:16px;outline:none}
+.search::placeholder{color:#555}
+</style>
+</head>
+<body>
+
+<h1>Status Ideas Engine 🏆</h1>
+<p class="subtitle">Living document · Updated by Sosa</p>
+
+<input type="text" class="search" placeholder="Search ideas..." id="search">
+
+<div class="stats">
+<div class="stat"><div class="stat-num" id="totalCount">69</div><div class="stat-label">Total Ideas</div></div>
+<div class="stat"><div class="stat-num" id="revCount">22</div><div class="stat-label">Revenue</div></div>
+<div class="stat"><div class="stat-num" id="partnerCount">17</div><div class="stat-label">Partnerships</div></div>
+</div>
+
+<div class="filter-bar" id="filters">
+<button class="filter active" data-cat="all">All</button>
+<button class="filter" data-cat="revenue">💰 Revenue</button>
+<button class="filter" data-cat="partnerships">🤝 Partners</button>
+<button class="filter" data-cat="growth">🚀 Growth</button>
+<button class="filter" data-cat="features">🧠 Features</button>
+<button class="filter" data-cat="data">📊 Data</button>
+<button class="filter" data-cat="cities">🏙️ Cities</button>
+<button class="filter" data-cat="quick">🎯 Quick Wins</button>
+</div>
+
+<div id="ideas-container"></div>
+
+<script>
+const ideas = [
+  // Revenue - Immediate
+  {n:1,cat:"revenue",title:"Venue subscription tiers",desc:"Free (basic analytics) → Pro $299/mo (full POS + attribution) → Enterprise $999/mo (multi-venue + API)",tag:"Immediate",tagClass:"tag-immediate"},
+  {n:2,cat:"revenue",title:"Promoter payout fees",desc:"Take 2-3% when paying out promoters through Status. They currently get paid cash/Venmo with zero paper trail.",tag:"Immediate",tagClass:"tag-immediate"},
+  {n:3,cat:"revenue",title:"Table minimum markup",desc:"Process table minimums through Status, take 3-5% on bottle service orders.",tag:"Immediate",tagClass:"tag-immediate"},
+  {n:4,cat:"revenue",title:"Dynamic cover pricing",desc:"Surge pricing at peak hours (11pm-1am). Status takes a cut of the premium.",tag:"Immediate",tagClass:"tag-immediate"},
+  {n:5,cat:"revenue",title:"VIP skip-the-line",desc:"Sell $20-50 express entry through the app. Pure margin.",tag:"Immediate",tagClass:"tag-immediate"},
+  {n:6,cat:"revenue",title:"Ticket resale marketplace",desc:"Let users resell tickets with 10-15% fee. StubHub for nightlife.",tag:"Immediate",tagClass:"tag-immediate"},
+  // Revenue - Short-term
+  {n:7,cat:"revenue",title:"Sponsored feed placement",desc:"Venues/promoters pay $50-200/night to be featured on discovery feed.",tag:"Short-term",tagClass:"tag-short"},
+  {n:8,cat:"revenue",title:"Promoted events",desc:"Pay to boost event visibility in specific demographics. $5-20 CPM.",tag:"Short-term",tagClass:"tag-short"},
+  {n:9,cat:"revenue",title:"In-app drink ordering",desc:"Skip the bar line, order from phone. Status processes payment — full Stripe margin.",tag:"Short-term",tagClass:"tag-short"},
+  {n:10,cat:"revenue",title:"Group tab splitting",desc:"$0.50-1.00 convenience fee per split. Everyone needs it, nobody minds paying.",tag:"Short-term",tagClass:"tag-short"},
+  {n:11,cat:"revenue",title:"Birthday/VIP packages",desc:"Pre-built bundles (table + bottles + skip line) at 15-20% markup.",tag:"Short-term",tagClass:"tag-short"},
+  {n:12,cat:"revenue",title:"Premium analytics reports",desc:"Weekly/monthly PDF insights for venue operators. $99-199/mo.",tag:"Short-term",tagClass:"tag-short"},
+  // Revenue - Medium-term
+  {n:13,cat:"revenue",title:"Alcohol brand partnerships",desc:"Brands pay $5K-20K/mo to be 'featured spirit' at Status venues.",tag:"Medium-term",tagClass:"tag-medium"},
+  {n:14,cat:"revenue",title:"Rideshare affiliate revenue",desc:"Uber/Lyft integration at closing time. Commission per ride booked through Status.",tag:"Medium-term",tagClass:"tag-medium"},
+  {n:15,cat:"revenue",title:"Late night food delivery",desc:"Post-club food partnerships. Commission per order at 2am.",tag:"Medium-term",tagClass:"tag-medium"},
+  {n:16,cat:"revenue",title:"Status Card",desc:"Co-branded debit/credit card. Earn points at Status venues. Interchange revenue.",tag:"Medium-term",tagClass:"tag-medium"},
+  {n:17,cat:"revenue",title:"Influencer marketplace",desc:"Connect venues with nightlife influencers. 15-20% booking fee.",tag:"Medium-term",tagClass:"tag-medium"},
+  // Revenue - Long-term
+  {n:18,cat:"revenue",title:"Status Pay",desc:"Become THE payment rail for nightlife. NFC everywhere.",tag:"Long-term",tagClass:"tag-long"},
+  {n:19,cat:"revenue",title:"Nightlife insurance",desc:"Partner with insurers. Liability coverage sold through Status.",tag:"Long-term",tagClass:"tag-long"},
+  {n:20,cat:"revenue",title:"Venue lending",desc:"Revenue-based financing using Status transaction data for underwriting.",tag:"Long-term",tagClass:"tag-long"},
+  {n:21,cat:"revenue",title:"Status Staffing",desc:"Marketplace for bartenders/bouncers/hosts. Instawork but nightlife-specific.",tag:"Long-term",tagClass:"tag-long"},
+  {n:22,cat:"revenue",title:"White-label platform",desc:"License Status tech to restaurant groups, hotel chains, casino operators.",tag:"Long-term",tagClass:"tag-long"},
+  // Partnerships
+  {n:23,cat:"partnerships",title:"Exclusive pour deals",desc:"'Tonight's featured shot: Casamigos' — brand pays venue + Status gets placement fee.",tag:"Partnership",tagClass:"tag-partnership"},
+  {n:24,cat:"partnerships",title:"Sampling programs",desc:"Brands give free samples at door via Status check-in. Charge brands per sample distributed.",tag:"Partnership",tagClass:"tag-partnership"},
+  {n:25,cat:"partnerships",title:"Consumption data sales",desc:"Anonymized drink preference data = GOLD for alcohol brands. $10K-50K/quarter per brand.",tag:"Partnership",tagClass:"tag-partnership"},
+  {n:26,cat:"partnerships",title:"Co-branded events",desc:"'Hennessy x Status Thursdays' — brand sponsors, Status produces, split revenue.",tag:"Partnership",tagClass:"tag-partnership"},
+  {n:27,cat:"partnerships",title:"Uber/Lyft API integration",desc:"'Your ride is 4 min away' at 1:45am. Affiliate commission per ride.",tag:"Partnership",tagClass:"tag-partnership"},
+  {n:28,cat:"partnerships",title:"Designated driver matching",desc:"Connect with sober drivers in the Status network. Premium feature.",tag:"Partnership",tagClass:"tag-partnership"},
+  {n:29,cat:"partnerships",title:"Post-club food deals",desc:"'20% off at [pizza spot]' push at 2am. Commission per order.",tag:"Partnership",tagClass:"tag-partnership"},
+  {n:30,cat:"partnerships",title:"Pre-game dinner reservations",desc:"Partner with Resy/OpenTable. Referral fees per booking.",tag:"Partnership",tagClass:"tag-partnership"},
+  {n:31,cat:"partnerships",title:"Hotel concierge integration",desc:"Hotels recommend Status for nightlife. Commission per booking.",tag:"Partnership",tagClass:"tag-partnership"},
+  {n:32,cat:"partnerships",title:"Hotel + nightlife packages",desc:"Bundle room + VIP entry + table. Massive markup potential.",tag:"Partnership",tagClass:"tag-partnership"},
+  {n:33,cat:"partnerships",title:"Dress code marketplace",desc:"Fashion brand partnership for same-day outfit delivery.",tag:"Partnership",tagClass:"tag-partnership"},
+  {n:34,cat:"partnerships",title:"Nightlife merch drops",desc:"Limited edition venue/event merch through Status.",tag:"Partnership",tagClass:"tag-partnership"},
+  {n:35,cat:"partnerships",title:"Stripe showcase partner",desc:"Become a Stripe Terminal showcase — preferred rates + marketing support.",tag:"Partnership",tagClass:"tag-partnership"},
+  {n:36,cat:"partnerships",title:"BNPL for big nights",desc:"Affirm/Klarna for table minimums and big tabs.",tag:"Partnership",tagClass:"tag-partnership"},
+  {n:37,cat:"partnerships",title:"Spotify integration",desc:"Show what's playing at each venue. Link to playlists. Artist partnerships.",tag:"Partnership",tagClass:"tag-partnership"},
+  {n:38,cat:"partnerships",title:"Event photography",desc:"Status photographers at events. Sell photos through app like theme parks.",tag:"Partnership",tagClass:"tag-partnership"},
+  {n:39,cat:"partnerships",title:"Live DJ streaming",desc:"Stream DJ sets. Viewers buy virtual drinks (tip venue/DJ).",tag:"Partnership",tagClass:"tag-partnership"},
+  // Growth
+  {n:40,cat:"growth",title:"College ambassador program",desc:"Free entry + commission for students who bring friends to Status. Campus domination.",tag:"Growth",tagClass:"tag-growth"},
+  {n:41,cat:"growth",title:"Promoter migration tool",desc:"Import contact lists, show better analytics than their spreadsheet. They bring their audience.",tag:"Growth",tagClass:"tag-growth"},
+  {n:42,cat:"growth",title:"Status Verified badge",desc:"Social proof for venues. Like Yelp/Michelin but for nightlife.",tag:"Growth",tagClass:"tag-growth"},
+  {n:43,cat:"growth",title:"Referral rewards",desc:"$5 credit per friend who goes out using Status.",tag:"Growth",tagClass:"tag-growth"},
+  {n:44,cat:"growth",title:"Content creator program",desc:"Pay nightlife TikTokers/IG creators to post Status content.",tag:"Growth",tagClass:"tag-growth"},
+  {n:45,cat:"growth",title:"Venue onboarding team",desc:"2-3 people per city signing venues. Pay per venue + ongoing commission.",tag:"Growth",tagClass:"tag-growth"},
+  {n:46,cat:"growth",title:"Free first night",desc:"Cover charge waived for first-time Status users at partner venues.",tag:"Growth",tagClass:"tag-growth"},
+  {n:47,cat:"growth",title:"Corporate events",desc:"Company happy hours and team outings. Higher spend, recurring revenue.",tag:"Growth",tagClass:"tag-growth"},
+  {n:48,cat:"growth",title:"Birthday automation",desc:"Detect birthdays from ID scans. Auto-send offers 2 weeks before. Birthday groups spend 3-5x.",tag:"Growth",tagClass:"tag-growth"},
+  // Features
+  {n:49,cat:"features",title:"Guest scoring",desc:"Credit score for nightlife. Rate guests on spend, behavior, frequency. Venues see it instantly.",tag:"Feature",tagClass:"tag-feature"},
+  {n:50,cat:"features",title:"Predictive wait times",desc:"ML model predicting line length from historical data + check-in velocity.",tag:"Feature",tagClass:"tag-feature"},
+  {n:51,cat:"features",title:"Social graph",desc:"'Your friends are at [venue]' — real-time friend location, opt-in.",tag:"Feature",tagClass:"tag-feature"},
+  {n:52,cat:"features",title:"Bartender ratings",desc:"Anonymous feedback helps venues optimize staffing.",tag:"Feature",tagClass:"tag-feature"},
+  {n:53,cat:"features",title:"Noise/vibe meter",desc:"Crowdsourced venue atmosphere ratings in real-time.",tag:"Feature",tagClass:"tag-feature"},
+  {n:54,cat:"features",title:"Crowd DJ requests",desc:"Song requests through app, voted on by the crowd.",tag:"Feature",tagClass:"tag-feature"},
+  {n:55,cat:"features",title:"Digital lost & found",desc:"Venues tag found items, guests claim through Status.",tag:"Feature",tagClass:"tag-feature"},
+  {n:56,cat:"features",title:"Safety features",desc:"Fake call button, friend location sharing, anonymous harassment reporting.",tag:"Feature",tagClass:"tag-feature"},
+  {n:57,cat:"features",title:"Post-night recap",desc:"Morning after: where you went, what you spent, photos, friends you were with.",tag:"Feature",tagClass:"tag-feature"},
+  {n:58,cat:"features",title:"Venue matchmaker",desc:"'What's your vibe tonight?' quiz → personalized recommendations.",tag:"Feature",tagClass:"tag-feature"},
+  {n:59,cat:"features",title:"Group night planner",desc:"Vote on venues, split costs, coordinate arrival — all in-app.",tag:"Feature",tagClass:"tag-feature"},
+  {n:60,cat:"features",title:"Loyalty program engine",desc:"Venues create custom loyalty through Status dashboard. 10th visit free, etc.",tag:"Feature",tagClass:"tag-feature"},
+  // Cities
+  {n:61,cat:"cities",title:"DC first",desc:"Service fees legal, college scene, political happy hours, normalized tipping culture.",tag:"City",tagClass:"tag-city"},
+  {n:62,cat:"cities",title:"Miami second",desc:"Nightlife capital. Tourist money. Year-round season.",tag:"City",tagClass:"tag-city"},
+  {n:63,cat:"cities",title:"Las Vegas third",desc:"Highest per-venue revenue. Casino partnerships. Whale money.",tag:"City",tagClass:"tag-city"},
+  {n:64,cat:"cities",title:"NYC fourth",desc:"Volume play. Hardest to crack but biggest market.",tag:"City",tagClass:"tag-city"},
+  {n:65,cat:"cities",title:"College towns first",desc:"Easier adoption, word-of-mouth spreads fast. Dominate campus-by-campus.",tag:"City",tagClass:"tag-city"},
+  // Data
+  {n:66,cat:"data",title:"Nightlife trends reports",desc:"Sell to real estate developers, alcohol brands, city planners.",tag:"Data",tagClass:"tag-data"},
+  {n:67,cat:"data",title:"Foot traffic data",desc:"Which neighborhoods are hot, which are dying. Valuable intelligence.",tag:"Data",tagClass:"tag-data"},
+  {n:68,cat:"data",title:"Spend pattern analytics",desc:"Average spend by age/gender/day/time. Gold for operators AND brands.",tag:"Data",tagClass:"tag-data"},
+  {n:69,cat:"data",title:"Competitive intelligence",desc:"'Venue X losing 15% traffic to Venue Y on Saturdays' — sell to owners.",tag:"Data",tagClass:"tag-data"},
+];
+
+const quickWins = [
+  "Birthday detection from ID scans → auto-offer pipeline",
+  "Promoter dashboard MVP (show them their numbers)",
+  "'Share your night' social feature → organic growth",
+  "Push notification system for venue promotions",
+  "Uber/Lyft deep link at closing time"
+];
+
+let activeFilter = 'all';
+
+function render(filter, query='') {
+  const container = document.getElementById('ideas-container');
+  let filtered = ideas;
+  if (filter !== 'all') filtered = filtered.filter(i => i.cat === filter);
+  if (query) {
+    const q = query.toLowerCase();
+    filtered = filtered.filter(i => i.title.toLowerCase().includes(q) || i.desc.toLowerCase().includes(q));
+  }
+
+  let html = '';
+
+  if (filter === 'all' || filter === 'quick') {
+    html += '<div class="category"><div class="cat-header"><span class="cat-icon">🎯</span><span class="cat-title">Quick Wins</span><span class="cat-count">'+quickWins.length+'</span></div>';
+    quickWins.forEach((w,i) => {
+      html += '<div class="idea"><div class="idea-title">'+w+'</div><span class="tag tag-quick">This Week</span></div>';
+    });
+    html += '</div>';
+  }
+
+  const cats = {revenue:'💰 Revenue',partnerships:'🤝 Partnerships',growth:'🚀 Growth',features:'🧠 Features',data:'📊 Data',cities:'🏙️ Cities'};
+
+  Object.keys(cats).forEach(cat => {
+    const items = filtered.filter(i => i.cat === cat);
+    if (!items.length) return;
+    html += '<div class="category"><div class="cat-header"><span class="cat-title">'+cats[cat]+'</span><span class="cat-count">'+items.length+'</span></div>';
+    items.forEach(i => {
+      html += '<div class="idea"><div class="idea-num">#'+i.n+'</div><div class="idea-title">'+i.title+'</div><div class="idea-desc">'+i.desc+'</div><span class="tag '+i.tagClass+'">'+i.tag+'</span></div>';
+    });
+    html += '</div>';
+  });
+
+  container.innerHTML = html;
+}
+
+document.querySelectorAll('.filter').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.cat;
+    render(activeFilter, document.getElementById('search').value);
+  });
+});
+
+document.getElementById('search').addEventListener('input', e => {
+  render(activeFilter, e.target.value);
+});
+
+render('all');
+</script>
+</body>
+</html>
