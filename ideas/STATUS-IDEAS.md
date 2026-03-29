@@ -493,4 +493,44 @@ Status could know you better than you know yourself. Because Status sees who you
 
 ---
 
+## The Social Capital Central Bank
+*March 29, 2026*
+
+**THE KILLER IDEA:** Status doesn't just track social behavior. Status creates the first transferable, tradeable social capital system in history.
+
+### The Insight
+
+Every nightlife interaction generates social currency - who you're with, where you go, spending level, recognition, access. Right now this capital is trapped in individual venues and promoter relationships. It doesn't compound. It doesn't transfer.
+
+**Status becomes the Federal Reserve of Social Capital:**
+
+1. **Social Credit Score:** Algorithm that weighs spending, frequency, connections, venue tier, group size, timing
+2. **Transferable Status:** Your score travels across venues, cities, countries  
+3. **Social Capital Markets:** High-status users can "lend" status to friends, promoters can bid for access to high-value networks
+4. **Cross-Platform Integration:** Score affects dating apps, exclusive events, luxury retail access, restaurant reservations
+5. **Liquidity Events:** Convert social capital to financial capital through partnerships, investments, business deals
+
+### Why This Changes Everything
+
+- **Network Effects:** Every venue that joins makes every user's social capital more valuable
+- **Moat:** Once you're the authority on social status, you become infrastructure
+- **Revenue Scale:** Not just transaction fees - marketplace fees, lending spreads, premium access subscriptions
+- **User Behavior:** People will change where they go to optimize their social capital score
+
+### The Precedent
+
+China's Social Credit system, but voluntary and focused on lifestyle/social value instead of political compliance.
+
+### Market Size
+
+Every high-value social space globally. Nightlife is just the beginning. Restaurants, hotels, events, retail, dating, networking.
+
+### Go-to-Market
+
+Start in nightlife (already have the data), expand to hospitality, then build API for any business that wants to gate access by social capital.
+
+**This isn't a POS company. This is the Bloomberg Terminal for human social value.**
+
+---
+
 *End of Document*
