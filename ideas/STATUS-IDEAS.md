@@ -67,6 +67,48 @@ Status becomes the **Stripe of human connection**. Every meaningful IRL interact
 
 ---
 
-*Added: 2026-03-29 19:26 UTC*
+## 2026-03-29 UPDATE: STATUS SCORE - THE SOCIAL CREDIT MOAT
+
+**THE KILLER APPLICATION:** Now that we're building social commerce infrastructure, here's what makes it defensible - **Status Score**.
+
+### What It Is
+
+A dynamic social credit rating that predicts high-value behavior across ALL social contexts. Not just "how much they spend" but "how much value they create."
+
+**Behavioral inputs:**
+- Spend velocity patterns
+- Social proof signals (group dynamics, connection quality)  
+- Cross-venue loyalty patterns
+- Cultural influence indicators (early adopter behavior)
+- Network effects (who they bring, who they connect)
+
+### Why This Is The Moat
+
+**Current state:** Venues guess at who their VIPs are. Usually wrong.
+
+**Status Score:** Real-time behavioral prediction. High scorers get:
+- Dynamic pricing (pay less or skip lines)
+- Automatic upgrades  
+- Personalized experiences
+- Access without gatekeepers
+
+### The Network Effect
+
+Status Score only gets better with scale. More venues = more behavioral data = better predictions = higher venue ROI = more venues join.
+
+**This is what Posh can't copy.** They can build a POS. They can't build 18 months of cross-venue behavioral data.
+
+### The Ultimate Vision
+
+Status Score becomes the **FICO score for the experience economy.**
+
+Hotels, restaurants, events, travel - everyone wants to identify high-value humans before they walk in the door. We become the identity layer for all premium experiences.
+
+**Not just social commerce infrastructure - the SCORING SYSTEM that makes the infrastructure valuable.**
+
+---
+
+*Added: 2026-03-29 19:26 UTC*  
+*Updated: 2026-03-29 21:56 UTC*
 *Confidence: 95%*
 *Impact: Trajectory-defining*
