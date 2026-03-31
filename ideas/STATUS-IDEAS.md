@@ -1,5 +1,68 @@
 # STATUS IDEAS
 
+## STATUS CORPORATE: THE $50B ENTERPRISE PLAY
+*March 31, 2026 - Cycle #196*
+
+**THE KILLER INSIGHT:** Every Fortune 500 company has massive corporate entertainment budgets ($100M+ at Goldman Sachs) with ZERO visibility into ROI. They're flying completely blind.
+
+**THE TRAJECTORY-CHANGING IDEA: CORPORATE ENTERTAINMENT ATTRIBUTION ENGINE**
+
+Status becomes the infrastructure layer for corporate entertainment spending. Not just nightlife—the entire business entertainment economy.
+
+**The Hidden Problem:**
+- Corporate entertainment = $50B+ market vs $2B nightlife
+- "Did that $10K dinner close the client?" Nobody knows.
+- Finance teams need SOX compliance reporting  
+- Sales teams can't prove entertainment ROI
+- HR needs diversity metrics on entertainment spend
+- Procurement has zero leverage with venues
+
+**The Status Corporate Play:**
+
+**Phase 1: Corporate Card Integration**
+- Amex Corporate, Chase Ink API integration
+- Auto-categorize all venue spend by employee/client/outcome
+- Real-time dashboard: which clients, venues, ROI
+- Automatic compliance reporting for finance
+
+**Phase 2: Deal Attribution Engine**
+- Cross-reference entertainment with Salesforce/CRM
+- "You spent $47K entertaining Acme Corp → $2.3M deal closed"
+- Predictive modeling: "Take this prospect to Catch LA, 73% close rate"
+- ROI analytics per employee, venue, client type
+
+**Phase 3: Corporate Entertainment OS**
+- Venue booking with corporate rates
+- Built-in compliance (SOX, diversity, spend controls)
+- Cross-company benchmarking data
+- Integration with Concur, Expensify, NetSuite
+
+**Why This Changes Everything:**
+
+1. **Market Size**: $50B corporate entertainment vs $2B consumer nightlife
+2. **Higher Margins**: Corporate pays 10-20x premium for same venues
+3. **Stickier**: CFO procurement lock-in vs consumer choice  
+4. **Network Effects**: More companies = better rates = better attribution data
+5. **Defensibility**: 2-3 year enterprise contracts
+
+**Revenue Model:**
+- SaaS: $10-50K/year per company 
+- Take rate: 2-5% on all corporate entertainment transactions
+- Data licensing: anonymized effectiveness data to venues
+- Rate arbitrage: corporate volume discounts, keep spread
+
+**The Aha:**
+Status isn't building nightlife infrastructure. They've accidentally built the foundation for corporate entertainment attribution. Goldman Sachs has no idea which $10K dinners close deals. Status can tell them.
+
+**This is the enterprise SaaS unicorn hiding inside consumer nightlife.**
+
+---
+
+*Insight Level: 🏆 TRAJECTORY CHANGER*  
+*Market Size: $50B+ corporate entertainment*
+*Timeline: 6-12 months to prove ROI*
+*Competitive Moat: First-mover in entertainment attribution*
+
 ## THE REAL WORLD SOCIAL COMMERCE PLATFORM
 *March 31, 2026 - Cycle #191*
 
